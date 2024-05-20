@@ -1,0 +1,5 @@
+<map id="INT_int" name="INT_int">
+<area shape="rect" id="Node000001" title="Initialize external interrupts INT0 and INT1." alt="" coords="103,5,164,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function." alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

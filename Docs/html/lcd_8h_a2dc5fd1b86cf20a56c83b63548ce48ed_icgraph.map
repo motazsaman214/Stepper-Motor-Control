@@ -1,0 +1,9 @@
+<map id="LCD_goToRowColumn" name="LCD_goToRowColumn">
+<area shape="rect" id="Node000001" title="Move the cursor to a specified position on the LCD." alt="" coords="341,31,491,57"/>
+<area shape="rect" id="Node000002" href="$lcd_8c.html#ab2392a60f34b9191ad7d69f0e9f5f085" title="Display a string at a specified position on the LCD." alt="" coords="103,5,293,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,36,293,32,294,27,326,31"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a2000f1f441f57bde3d29fa2a57f952a7" title="Update the LCD display with the current motor direction and step mode." alt="" coords="155,56,241,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="326,57,241,67,240,62,325,52"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function." alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="140,72,55,72,55,67,140,67"/>
+</map>

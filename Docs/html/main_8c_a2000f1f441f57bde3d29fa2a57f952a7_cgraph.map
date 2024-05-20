@@ -1,0 +1,14 @@
+<map id="updateLCD" name="updateLCD">
+<area shape="rect" id="Node000001" title="Update the LCD display with the current motor direction and step mode." alt="" coords="5,56,91,83"/>
+<area shape="rect" id="Node000002" href="$lcd_8c.html#a84a2f3a2540df94eb157c2976180625f" title="Clear the LCD screen." alt="" coords="153,5,275,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,54,152,35,154,40,92,59"/>
+<area shape="rect" id="Node000004" href="$lcd_8c.html#a45740a22d2363f8d6cc439cedbde9a36" title="Display a string on the LCD." alt="" coords="150,107,278,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="92,80,154,99,152,104,90,85"/>
+<area shape="rect" id="Node000006" href="$lcd_8c.html#a2dc5fd1b86cf20a56c83b63548ce48ed" title="Move the cursor to a specified position on the LCD." alt="" coords="139,56,289,83"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="91,67,124,67,124,72,91,72"/>
+<area shape="rect" id="Node000003" href="$lcd_8c.html#acce20ba4ca4e6a59e332d28a0bcd735c" title="Send a command to the LCD." alt="" coords="342,31,482,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="276,24,327,30,326,36,275,29"/>
+<area shape="rect" id="Node000005" href="$lcd_8c.html#a95f704f0b15c7a97cf4df2bbf9214bcb" title="Display a character on the LCD." alt="" coords="337,107,487,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="278,117,321,117,321,123,278,123"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="289,57,326,52,327,58,289,62"/>
+</map>

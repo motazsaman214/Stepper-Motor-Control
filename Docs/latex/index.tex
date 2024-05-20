@@ -1,0 +1,32 @@
+\chapter{Stepper Motor Control with AVR ATmega32}
+\hypertarget{index}{}\label{index}\index{Stepper Motor Control with AVR ATmega32@{Stepper Motor Control with AVR ATmega32}}
+\hypertarget{index_intro_sec}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{index_intro_sec}
+This documentation provides detailed information about the stepper motor control project implemented on an AVR ATmega32 microcontroller. The project involves controlling a stepper motor\textquotesingle{}s direction and stepping mode using push buttons for user interaction.\hypertarget{index_features_sec}{}\doxysection{\texorpdfstring{Features}{Features}}\label{index_features_sec}
+
+\begin{DoxyItemize}
+\item Motor direction control using external interrupt INT0.
+\item Stepping mode selection (full step or half step) using external interrupt INT1.
+\item LCD display for real-\/time feedback on motor direction and stepping mode.
+\item Timer-\/based delay for controlling motor speed.
+\end{DoxyItemize}\hypertarget{index_hardware_sec}{}\doxysection{\texorpdfstring{Hardware}{Hardware}}\label{index_hardware_sec}
+
+\begin{DoxyItemize}
+\item AVR ATmega32 microcontroller.
+\item Stepper motor.
+\item LCD display (16x4).
+\item Push buttons for motor direction and mode control.
+\end{DoxyItemize}\hypertarget{index_setup_sec}{}\doxysection{\texorpdfstring{Setup}{Setup}}\label{index_setup_sec}
+
+\begin{DoxyItemize}
+\item Connect the stepper motor to PORTC of the AVR ATmega32.
+\item Connect the LCD display to appropriate data and control pins.
+\item Connect push buttons for motor direction and mode control to PD2 (INT0) and PD3 (INT1) respectively.
+\item Ensure proper power supply and grounding.
+\end{DoxyItemize}\hypertarget{index_usage_sec}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_usage_sec}
+
+\begin{DoxyItemize}
+\item Press the direction button to toggle between clockwise (CW) and counter-\/clockwise (CCW) rotation.
+\item Press the mode button to switch between full step and half step mode.
+\item View the motor direction and mode on the LCD display.
+\end{DoxyItemize}\hypertarget{index_author_sec}{}\doxysection{\texorpdfstring{Author}{Author}}\label{index_author_sec}
+Written by Motaz Ahmed Elsaman. 

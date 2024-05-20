@@ -1,0 +1,346 @@
+\doxysection{src/lcd.c File Reference}
+\hypertarget{lcd_8c}{}\label{lcd_8c}\index{src/lcd.c@{src/lcd.c}}
+
+
+LCD driver source file.  
+
+
+{\ttfamily \#include "{}../include/lcd.\+h"{}}\newline
+Include dependency graph for lcd.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lcd_8c_a301a0b73016a44e015dbd374c08243d4}{LCD\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_acce20ba4ca4e6a59e332d28a0bcd735c}{LCD\+\_\+send\+Command}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} command)
+\begin{DoxyCompactList}\small\item\em Send a command to the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_a95f704f0b15c7a97cf4df2bbf9214bcb}{LCD\+\_\+display\+Character}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} data)
+\begin{DoxyCompactList}\small\item\em Display a character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_a45740a22d2363f8d6cc439cedbde9a36}{LCD\+\_\+display\+String}} (const char \texorpdfstring{$\ast$}{*}Str)
+\begin{DoxyCompactList}\small\item\em Display a string on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_a2dc5fd1b86cf20a56c83b63548ce48ed}{LCD\+\_\+go\+To\+Row\+Column}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} row, \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} col)
+\begin{DoxyCompactList}\small\item\em Move the cursor to a specified position on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_ab2392a60f34b9191ad7d69f0e9f5f085}{LCD\+\_\+display\+String\+Row\+Colum}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} row, \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} col, const char \texorpdfstring{$\ast$}{*}Str)
+\begin{DoxyCompactList}\small\item\em Display a string at a specified position on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_ae370e63124b5591b180ed93046cbba93}{LCD\+\_\+intger\+To\+String}} (int data)
+\begin{DoxyCompactList}\small\item\em Convert an integer to a string and display it on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_a4d9e56afb5a3e2e68a1b10815d782819}{LCD\+\_\+double\+To\+String}} (double data)
+\begin{DoxyCompactList}\small\item\em Convert a double to a string and display it on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8c_a84a2f3a2540df94eb157c2976180625f}{LCD\+\_\+clear\+Screen}} (void)
+\begin{DoxyCompactList}\small\item\em Clear the LCD screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LCD driver source file. 
+
+This file contains the implementation of functions for controlling an LCD. It supports both 4-\/bit and 8-\/bit modes.
+
+\begin{DoxyDate}{Date}
+May 19, 2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Motaz 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lcd_8c_a84a2f3a2540df94eb157c2976180625f}\label{lcd_8c_a84a2f3a2540df94eb157c2976180625f} 
+\index{lcd.c@{lcd.c}!LCD\_clearScreen@{LCD\_clearScreen}}
+\index{LCD\_clearScreen@{LCD\_clearScreen}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_clearScreen()}{LCD\_clearScreen()}}
+{\footnotesize\ttfamily void LCD\+\_\+clear\+Screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear the LCD screen. 
+
+This function clears the LCD screen. 
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00215}{215}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{lcd_8c_a84a2f3a2540df94eb157c2976180625f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{lcd_8c_a84a2f3a2540df94eb157c2976180625f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_a95f704f0b15c7a97cf4df2bbf9214bcb}\label{lcd_8c_a95f704f0b15c7a97cf4df2bbf9214bcb} 
+\index{lcd.c@{lcd.c}!LCD\_displayCharacter@{LCD\_displayCharacter}}
+\index{LCD\_displayCharacter@{LCD\_displayCharacter}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayCharacter()}{LCD\_displayCharacter()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Display a character on the LCD. 
+
+This function displays a character on the LCD in either 4-\/bit or 8-\/bit mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The character to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00091}{91}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_a95f704f0b15c7a97cf4df2bbf9214bcb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_a45740a22d2363f8d6cc439cedbde9a36}\label{lcd_8c_a45740a22d2363f8d6cc439cedbde9a36} 
+\index{lcd.c@{lcd.c}!LCD\_displayString@{LCD\_displayString}}
+\index{LCD\_displayString@{LCD\_displayString}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayString()}{LCD\_displayString()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+
+
+Display a string on the LCD. 
+
+This function displays a null-\/terminated string on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Str} & The string to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00131}{131}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{lcd_8c_a45740a22d2363f8d6cc439cedbde9a36_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_a45740a22d2363f8d6cc439cedbde9a36_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_ab2392a60f34b9191ad7d69f0e9f5f085}\label{lcd_8c_ab2392a60f34b9191ad7d69f0e9f5f085} 
+\index{lcd.c@{lcd.c}!LCD\_displayStringRowColum@{LCD\_displayStringRowColum}}
+\index{LCD\_displayStringRowColum@{LCD\_displayStringRowColum}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayStringRowColum()}{LCD\_displayStringRowColum()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+String\+Row\+Colum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{row,  }\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{col,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+
+
+Display a string at a specified position on the LCD. 
+
+This function displays a null-\/terminated string at a specified row and column on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row number (0-\/1). \\
+\hline
+{\em col} & The column number (0-\/15). \\
+\hline
+{\em Str} & The string to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00175}{175}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_ab2392a60f34b9191ad7d69f0e9f5f085_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_a4d9e56afb5a3e2e68a1b10815d782819}\label{lcd_8c_a4d9e56afb5a3e2e68a1b10815d782819} 
+\index{lcd.c@{lcd.c}!LCD\_doubleToString@{LCD\_doubleToString}}
+\index{LCD\_doubleToString@{LCD\_doubleToString}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_doubleToString()}{LCD\_doubleToString()}}
+{\footnotesize\ttfamily void LCD\+\_\+double\+To\+String (\begin{DoxyParamCaption}\item[{double}]{data }\end{DoxyParamCaption})}
+
+
+
+Convert a double to a string and display it on the LCD. 
+
+This function converts a double to a string and displays it on the LCD. It displays up to two decimal places.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The double to display. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Integer part
+
+\texorpdfstring{$<$}{<} Assuming 2 decimal places
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00201}{201}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_a4d9e56afb5a3e2e68a1b10815d782819_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_a2dc5fd1b86cf20a56c83b63548ce48ed}\label{lcd_8c_a2dc5fd1b86cf20a56c83b63548ce48ed} 
+\index{lcd.c@{lcd.c}!LCD\_goToRowColumn@{LCD\_goToRowColumn}}
+\index{LCD\_goToRowColumn@{LCD\_goToRowColumn}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_goToRowColumn()}{LCD\_goToRowColumn()}}
+{\footnotesize\ttfamily void LCD\+\_\+go\+To\+Row\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{row,  }\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Move the cursor to a specified position on the LCD. 
+
+This function moves the cursor to a specified row and column on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row number (0-\/1). \\
+\hline
+{\em col} & The column number (0-\/15). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00147}{147}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{lcd_8c_a2dc5fd1b86cf20a56c83b63548ce48ed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_a2dc5fd1b86cf20a56c83b63548ce48ed_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_a301a0b73016a44e015dbd374c08243d4}\label{lcd_8c_a301a0b73016a44e015dbd374c08243d4} 
+\index{lcd.c@{lcd.c}!LCD\_init@{LCD\_init}}
+\index{LCD\_init@{LCD\_init}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_init()}{LCD\_init()}}
+{\footnotesize\ttfamily void LCD\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the LCD. 
+
+Function prototypes.
+
+This function initializes the LCD in either 4-\/bit or 8-\/bit mode. 
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00026}{26}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{lcd_8c_a301a0b73016a44e015dbd374c08243d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{lcd_8c_a301a0b73016a44e015dbd374c08243d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_ae370e63124b5591b180ed93046cbba93}\label{lcd_8c_ae370e63124b5591b180ed93046cbba93} 
+\index{lcd.c@{lcd.c}!LCD\_intgerToString@{LCD\_intgerToString}}
+\index{LCD\_intgerToString@{LCD\_intgerToString}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_intgerToString()}{LCD\_intgerToString()}}
+{\footnotesize\ttfamily void LCD\+\_\+intger\+To\+String (\begin{DoxyParamCaption}\item[{int}]{data }\end{DoxyParamCaption})}
+
+
+
+Convert an integer to a string and display it on the LCD. 
+
+This function converts an integer to a string and displays it on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The integer to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00187}{187}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_ae370e63124b5591b180ed93046cbba93_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8c_acce20ba4ca4e6a59e332d28a0bcd735c}\label{lcd_8c_acce20ba4ca4e6a59e332d28a0bcd735c} 
+\index{lcd.c@{lcd.c}!LCD\_sendCommand@{LCD\_sendCommand}}
+\index{LCD\_sendCommand@{LCD\_sendCommand}!lcd.c@{lcd.c}}
+\doxysubsubsection{\texorpdfstring{LCD\_sendCommand()}{LCD\_sendCommand()}}
+{\footnotesize\ttfamily void LCD\+\_\+send\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{command }\end{DoxyParamCaption})}
+
+
+
+Send a command to the LCD. 
+
+This function sends a command to the LCD in either 4-\/bit or 8-\/bit mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to send. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00051}{51}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8c_acce20ba4ca4e6a59e332d28a0bcd735c_icgraph}
+\end{center}
+\end{figure}

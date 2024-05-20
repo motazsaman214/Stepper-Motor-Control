@@ -1,0 +1,421 @@
+\doxysection{src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{src/main.c@{src/main.c}}
+
+
+Stepper motor control with AVR ATmega32 using push buttons for direction and mode control.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include "{}../include/lcd.\+h"{}}\newline
+{\ttfamily \#include "{}../include/common\+\_\+macros.\+h"{}}\newline
+{\ttfamily \#include "{}../include/micro\+\_\+config.\+h"{}}\newline
+{\ttfamily \#include "{}../include/std\+\_\+types.\+h"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a9209193fb6aab895fa472c7b82c09bf1}{HALF\+\_\+\+WAVE\+\_\+\+STEPS}}~8
+\begin{DoxyCompactList}\small\item\em Number of steps in half wave mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a42d1fa7dbb5bd3cf6423dd9e6f62745d}{FULL\+\_\+\+WAVE\+\_\+\+STEPS}}~4
+\begin{DoxyCompactList}\small\item\em Number of steps in full wave mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_abe61b07c31c2a3e90576eb4c5d95b024}{CW}}~1
+\begin{DoxyCompactList}\small\item\em Clockwise direction. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a8a460b6555077a64fc97f2e7ef47b843}{CCW}}~0
+\begin{DoxyCompactList}\small\item\em Counter-\/clockwise direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a99eb04bf8fed2beecfb3cb74451416c5}{timer0\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize Timer0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a9d9be562445321043224885018bc7da3}{delay\+\_\+ms}} (uint16\+\_\+t milliseconds)
+\begin{DoxyCompactList}\small\item\em Delay function using Timer0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_add2d7cdddfb682dcc0391e60cf42c7d6}{ISR}} (TIMER0\+\_\+\+OVF\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Timer0 overflow interrupt service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae6af3556ce5547b9991ec362b46927e8}{INT\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Initialize external interrupts INT0 and INT1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_afea150fcd685610cb9f7672fce361e53}{ISR}} (INT0\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine for INT0 (PD2). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{main_8c_a22acfb428840c6d9aa212764589cf6c6}{ISR}} (INT1\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine for INT1 (PD3). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a2000f1f441f57bde3d29fa2a57f952a7}{update\+LCD}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} direction, \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} mode)
+\begin{DoxyCompactList}\small\item\em Update the LCD display with the current motor direction and step mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} \mbox{\hyperlink{main_8c_a8028fd111a8dbf16ab341e28f8fa66c5}{Motor\+Direction}} = \mbox{\hyperlink{main_8c_abe61b07c31c2a3e90576eb4c5d95b024}{CW}}
+\begin{DoxyCompactList}\small\item\em Motor direction (CW or CCW) \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} \mbox{\hyperlink{main_8c_a757538f39c3626b9aedb3446eb00054a}{Step\+Mode}} = 0
+\begin{DoxyCompactList}\small\item\em Step mode (0 for full step, 1 for half step) \end{DoxyCompactList}\item 
+volatile uint16\+\_\+t \mbox{\hyperlink{main_8c_a9c4d41cc1020b99dfffd3e84604a5c64}{timer0\+\_\+ticks}} = 0
+\begin{DoxyCompactList}\small\item\em Timer0 ticks counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} \mbox{\hyperlink{main_8c_a15fb4edaca0ea238abe01a7558fe38cb}{FULL\+\_\+\+WAVE\+\_\+motor\+\_\+steps}} \mbox{[}\mbox{\hyperlink{main_8c_a42d1fa7dbb5bd3cf6423dd9e6f62745d}{FULL\+\_\+\+WAVE\+\_\+\+STEPS}}\mbox{]} = \{12, 6, 3, 9\}
+\begin{DoxyCompactList}\small\item\em Full wave stepping sequence. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} \mbox{\hyperlink{main_8c_af8db2950bf264cfb0c84ea7a220bef6a}{HALF\+\_\+\+WAVE\+\_\+motor\+\_\+steps}} \mbox{[}\mbox{\hyperlink{main_8c_a9209193fb6aab895fa472c7b82c09bf1}{HALF\+\_\+\+WAVE\+\_\+\+STEPS}}\mbox{]} = \{12, 4, 6, 2, 3, 1, 9, 8\}
+\begin{DoxyCompactList}\small\item\em Half wave stepping sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stepper motor control with AVR ATmega32 using push buttons for direction and mode control. 
+
+This file contains the implementation of stepper motor control using an AVR ATmega32 microcontroller. It includes functionality to control the motor direction and stepping mode (full step or half step) through external interrupts triggered by push buttons.
+
+\begin{DoxyDate}{Date}
+May 18, 2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Motaz 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8c_a8a460b6555077a64fc97f2e7ef47b843}\label{main_8c_a8a460b6555077a64fc97f2e7ef47b843} 
+\index{main.c@{main.c}!CCW@{CCW}}
+\index{CCW@{CCW}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{CCW}{CCW}}
+{\footnotesize\ttfamily \#define CCW~0}
+
+
+
+Counter-\/clockwise direction. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00024}{24}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_abe61b07c31c2a3e90576eb4c5d95b024}\label{main_8c_abe61b07c31c2a3e90576eb4c5d95b024} 
+\index{main.c@{main.c}!CW@{CW}}
+\index{CW@{CW}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{CW}{CW}}
+{\footnotesize\ttfamily \#define CW~1}
+
+
+
+Clockwise direction. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00023}{23}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a42d1fa7dbb5bd3cf6423dd9e6f62745d}\label{main_8c_a42d1fa7dbb5bd3cf6423dd9e6f62745d} 
+\index{main.c@{main.c}!FULL\_WAVE\_STEPS@{FULL\_WAVE\_STEPS}}
+\index{FULL\_WAVE\_STEPS@{FULL\_WAVE\_STEPS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{FULL\_WAVE\_STEPS}{FULL\_WAVE\_STEPS}}
+{\footnotesize\ttfamily \#define FULL\+\_\+\+WAVE\+\_\+\+STEPS~4}
+
+
+
+Number of steps in full wave mode. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00021}{21}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a9209193fb6aab895fa472c7b82c09bf1}\label{main_8c_a9209193fb6aab895fa472c7b82c09bf1} 
+\index{main.c@{main.c}!HALF\_WAVE\_STEPS@{HALF\_WAVE\_STEPS}}
+\index{HALF\_WAVE\_STEPS@{HALF\_WAVE\_STEPS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HALF\_WAVE\_STEPS}{HALF\_WAVE\_STEPS}}
+{\footnotesize\ttfamily \#define HALF\+\_\+\+WAVE\+\_\+\+STEPS~8}
+
+
+
+Number of steps in half wave mode. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00020}{20}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a9d9be562445321043224885018bc7da3}\label{main_8c_a9d9be562445321043224885018bc7da3} 
+\index{main.c@{main.c}!delay\_ms@{delay\_ms}}
+\index{delay\_ms@{delay\_ms}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{delay\_ms()}{delay\_ms()}}
+{\footnotesize\ttfamily void delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Delay function using Timer0. 
+
+This function generates a delay in milliseconds using Timer0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The duration of the delay in milliseconds. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00052}{52}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{main_8c_a9d9be562445321043224885018bc7da3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_ae6af3556ce5547b9991ec362b46927e8}\label{main_8c_ae6af3556ce5547b9991ec362b46927e8} 
+\index{main.c@{main.c}!INT\_int@{INT\_int}}
+\index{INT\_int@{INT\_int}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{INT\_int()}{INT\_int()}}
+{\footnotesize\ttfamily void INT\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize external interrupts INT0 and INT1. 
+
+This function sets up external interrupts on PD2 (INT0) and PD3 (INT1) with internal pull-\/up resistors and triggers them on the falling edge. \texorpdfstring{$<$}{<} Set PD2 and PD3 as inputs
+
+\texorpdfstring{$<$}{<} Enable internal pull-\/up resistors for PD2 and PD3
+
+\texorpdfstring{$<$}{<} Enable external interrupts INT0 and INT1
+
+\texorpdfstring{$<$}{<} Trigger INT0 on falling edge
+
+\texorpdfstring{$<$}{<} Trigger INT1 on falling edge
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00079}{79}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{main_8c_ae6af3556ce5547b9991ec362b46927e8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_afea150fcd685610cb9f7672fce361e53}\label{main_8c_afea150fcd685610cb9f7672fce361e53} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{INT0\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine for INT0 (PD2). 
+
+This ISR toggles the motor direction when the button connected to PD2 is pressed. \texorpdfstring{$<$}{<} Toggle motor direction
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00093}{93}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a22acfb428840c6d9aa212764589cf6c6}\label{main_8c_a22acfb428840c6d9aa212764589cf6c6} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{INT1\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine for INT1 (PD3). 
+
+This ISR toggles the stepping mode between full step and half step when the button connected to PD3 is pressed. \texorpdfstring{$<$}{<} Toggle stepping mode
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00103}{103}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_add2d7cdddfb682dcc0391e60cf42c7d6}\label{main_8c_add2d7cdddfb682dcc0391e60cf42c7d6} 
+\index{main.c@{main.c}!ISR@{ISR}}
+\index{ISR@{ISR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER0\+\_\+\+OVF\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+Timer0 overflow interrupt service routine. 
+
+This ISR increments the Timer0 ticks counter. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00068}{68}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+This function initializes the motor control, sets up the interrupts, and enters a loop that controls the motor based on the current direction and stepping mode.
+
+\begin{DoxyReturn}{Returns}
+int This function does not return. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Set PORTC as output for motor control
+
+\texorpdfstring{$<$}{<} Initialize the LCD
+
+\texorpdfstring{$<$}{<} Initialize external interrupts
+
+\texorpdfstring{$<$}{<} Initialize Timer0 for delay
+
+\texorpdfstring{$<$}{<} Index to track the current step in the sequence
+
+\texorpdfstring{$<$}{<} Select step sequence based on mode
+
+\texorpdfstring{$<$}{<} Determine number of steps based on mode
+
+\texorpdfstring{$<$}{<} Set motor control pins to the current step value
+
+\texorpdfstring{$<$}{<} Update LCD with current direction and mode if changed
+
+\texorpdfstring{$<$}{<} Fixed delay for stepping speed
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00140}{140}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a99eb04bf8fed2beecfb3cb74451416c5}\label{main_8c_a99eb04bf8fed2beecfb3cb74451416c5} 
+\index{main.c@{main.c}!timer0\_init@{timer0\_init}}
+\index{timer0\_init@{timer0\_init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_init()}{timer0\_init()}}
+{\footnotesize\ttfamily void timer0\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize Timer0. 
+
+This function initializes Timer0 for generating a delay. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00038}{38}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{main_8c_a99eb04bf8fed2beecfb3cb74451416c5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a2000f1f441f57bde3d29fa2a57f952a7}\label{main_8c_a2000f1f441f57bde3d29fa2a57f952a7} 
+\index{main.c@{main.c}!updateLCD@{updateLCD}}
+\index{updateLCD@{updateLCD}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{updateLCD()}{updateLCD()}}
+{\footnotesize\ttfamily void update\+LCD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{direction,  }\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Update the LCD display with the current motor direction and step mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The current motor direction. \\
+\hline
+{\em mode} & The current step mode. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00113}{113}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a2000f1f441f57bde3d29fa2a57f952a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{main_8c_a2000f1f441f57bde3d29fa2a57f952a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a15fb4edaca0ea238abe01a7558fe38cb}\label{main_8c_a15fb4edaca0ea238abe01a7558fe38cb} 
+\index{main.c@{main.c}!FULL\_WAVE\_motor\_steps@{FULL\_WAVE\_motor\_steps}}
+\index{FULL\_WAVE\_motor\_steps@{FULL\_WAVE\_motor\_steps}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{FULL\_WAVE\_motor\_steps}{FULL\_WAVE\_motor\_steps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} FULL\+\_\+\+WAVE\+\_\+motor\+\_\+steps\mbox{[}\mbox{\hyperlink{main_8c_a42d1fa7dbb5bd3cf6423dd9e6f62745d}{FULL\+\_\+\+WAVE\+\_\+\+STEPS}}\mbox{]} = \{12, 6, 3, 9\}}
+
+
+
+Full wave stepping sequence. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00030}{30}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_af8db2950bf264cfb0c84ea7a220bef6a}\label{main_8c_af8db2950bf264cfb0c84ea7a220bef6a} 
+\index{main.c@{main.c}!HALF\_WAVE\_motor\_steps@{HALF\_WAVE\_motor\_steps}}
+\index{HALF\_WAVE\_motor\_steps@{HALF\_WAVE\_motor\_steps}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HALF\_WAVE\_motor\_steps}{HALF\_WAVE\_motor\_steps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} HALF\+\_\+\+WAVE\+\_\+motor\+\_\+steps\mbox{[}\mbox{\hyperlink{main_8c_a9209193fb6aab895fa472c7b82c09bf1}{HALF\+\_\+\+WAVE\+\_\+\+STEPS}}\mbox{]} = \{12, 4, 6, 2, 3, 1, 9, 8\}}
+
+
+
+Half wave stepping sequence. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00031}{31}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a8028fd111a8dbf16ab341e28f8fa66c5}\label{main_8c_a8028fd111a8dbf16ab341e28f8fa66c5} 
+\index{main.c@{main.c}!MotorDirection@{MotorDirection}}
+\index{MotorDirection@{MotorDirection}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MotorDirection}{MotorDirection}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} Motor\+Direction = \mbox{\hyperlink{main_8c_abe61b07c31c2a3e90576eb4c5d95b024}{CW}}}
+
+
+
+Motor direction (CW or CCW) 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00026}{26}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a757538f39c3626b9aedb3446eb00054a}\label{main_8c_a757538f39c3626b9aedb3446eb00054a} 
+\index{main.c@{main.c}!StepMode@{StepMode}}
+\index{StepMode@{StepMode}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{StepMode}{StepMode}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} Step\+Mode = 0}
+
+
+
+Step mode (0 for full step, 1 for half step) 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00027}{27}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a9c4d41cc1020b99dfffd3e84604a5c64}\label{main_8c_a9c4d41cc1020b99dfffd3e84604a5c64} 
+\index{main.c@{main.c}!timer0\_ticks@{timer0\_ticks}}
+\index{timer0\_ticks@{timer0\_ticks}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_ticks}{timer0\_ticks}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t timer0\+\_\+ticks = 0}
+
+
+
+Timer0 ticks counter. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00028}{28}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

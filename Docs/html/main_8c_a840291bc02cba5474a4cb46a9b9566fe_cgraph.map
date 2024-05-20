@@ -1,0 +1,25 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main function." alt="" coords="5,107,55,133"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a9d9be562445321043224885018bc7da3" title="Delay function using Timer0." alt="" coords="107,5,184,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,104,67,74,101,42,105,39,108,43,104,46,71,78,44,108"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#ae6af3556ce5547b9991ec362b46927e8" title="Initialize external interrupts INT0 and INT1." alt="" coords="115,56,176,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,107,99,86,102,91,56,112"/>
+<area shape="rect" id="Node000004" href="$lcd_8c.html#a301a0b73016a44e015dbd374c08243d4" title="Function prototypes." alt="" coords="276,107,346,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,117,260,117,260,123,55,123"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#a99eb04bf8fed2beecfb3cb74451416c5" title="Initialize Timer0." alt="" coords="105,157,186,184"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="56,128,100,148,98,153,54,133"/>
+<area shape="rect" id="Node000007" href="$main_8c.html#a2000f1f441f57bde3d29fa2a57f952a7" title="Update the LCD display with the current motor direction and step mode." alt="" coords="103,208,188,235"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="44,132,71,162,104,194,108,197,105,201,101,198,67,166,40,136"/>
+<area shape="rect" id="Node000005" href="$lcd_8c.html#acce20ba4ca4e6a59e332d28a0bcd735c" title="Send a command to the LCD." alt="" coords="439,157,580,184"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="347,126,440,150,439,155,346,131"/>
+<area shape="rect" id="Node000008" href="$lcd_8c.html#a84a2f3a2540df94eb157c2976180625f" title="Clear the LCD screen." alt="" coords="250,157,372,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="187,206,250,187,251,192,189,211"/>
+<area shape="rect" id="Node000009" href="$lcd_8c.html#a45740a22d2363f8d6cc439cedbde9a36" title="Display a string on the LCD." alt="" coords="247,259,375,285"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="189,232,251,251,250,256,187,237"/>
+<area shape="rect" id="Node000011" href="$lcd_8c.html#a2dc5fd1b86cf20a56c83b63548ce48ed" title="Move the cursor to a specified position on the LCD." alt="" coords="236,208,386,235"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="188,219,221,219,221,224,188,224"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="373,168,424,168,424,173,373,173"/>
+<area shape="rect" id="Node000010" href="$lcd_8c.html#a95f704f0b15c7a97cf4df2bbf9214bcb" title="Display a character on the LCD." alt="" coords="434,259,585,285"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="375,269,419,269,419,275,375,275"/>
+<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="366,205,439,186,440,191,367,210"/>
+</map>

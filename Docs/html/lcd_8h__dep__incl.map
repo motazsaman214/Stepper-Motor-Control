@@ -1,0 +1,7 @@
+<map id="include/lcd.h" name="include/lcd.h">
+<area shape="rect" id="Node000001" title="LCD driver header file." alt="" coords="45,5,139,32"/>
+<area shape="rect" id="Node000002" href="$lcd_8c.html" title="LCD driver source file." alt="" coords="5,80,77,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,46,52,81,48,78,72,43"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title="Stepper motor control with AVR ATmega32 using push buttons for direction and mode control." alt="" coords="101,80,184,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,43,136,78,131,81,107,46"/>
+</map>

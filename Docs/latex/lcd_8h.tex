@@ -1,0 +1,710 @@
+\doxysection{include/lcd.h File Reference}
+\hypertarget{lcd_8h}{}\label{lcd_8h}\index{include/lcd.h@{include/lcd.h}}
+
+
+LCD driver header file.  
+
+
+{\ttfamily \#include "{}common\+\_\+macros.\+h"{}}\newline
+{\ttfamily \#include "{}std\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}micro\+\_\+config.\+h"{}}\newline
+Include dependency graph for lcd.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{lcd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a613e27eef2ef8406b7c266c1817e0c5a}{DATA\+\_\+\+BITS\+\_\+\+MODE}}~4
+\begin{DoxyCompactList}\small\item\em Data bits mode (4 or 8) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a48faec79de2e79f51f1556c22f8ce113}{LOWER\+\_\+\+PORT\+\_\+\+PINS}}
+\item 
+\#define \mbox{\hyperlink{lcd_8h_af8903d8eea3868940c60af887473b152}{RS}}~PB0
+\begin{DoxyCompactList}\small\item\em Register select pin. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_afc4ded33ac0ca43defcce639e965748a}{RW}}~PB1
+\begin{DoxyCompactList}\small\item\em Read/\+Write pin. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a07484107e6d9fdf38b53edf631d6511d}{E}}~PB2
+\begin{DoxyCompactList}\small\item\em Enable pin. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a10f66499a3b1e8388d4f380e784d2149}{LCD\+\_\+\+CTRL\+\_\+\+PORT}}~PORTB
+\begin{DoxyCompactList}\small\item\em Control port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a7d8e60f5071fa0f01d70cbac2b57bae4}{LCD\+\_\+\+CTRL\+\_\+\+PORT\+\_\+\+DIR}}~DDRB
+\begin{DoxyCompactList}\small\item\em Control port direction. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a077def6ebb43bf9aee4e7cad468ed726}{LCD\+\_\+\+DATA\+\_\+\+PORT}}~PORTA
+\begin{DoxyCompactList}\small\item\em Data port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_ab8a7d604fbab96846d056ab79068b22c}{LCD\+\_\+\+DATA\+\_\+\+PORT\+\_\+\+DIR}}~DDRA
+\begin{DoxyCompactList}\small\item\em Data port direction. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a94e0e8cdb503dad489e49b5f06ab2298}{ONE\+\_\+\+LINE\+\_\+8\+\_\+\+BIT\+\_\+\+MODE}}~0x30
+\begin{DoxyCompactList}\small\item\em LCD Commands. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lcd_8h_a72a2fa9ca8e2b37b8689f4baf015d18c}{TWO\+\_\+\+LINE\+\_\+8\+\_\+\+BIT\+\_\+\+MODE}}~0x38
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a2d3a84745c290605a01e4570d8b6024b}{ONE\+\_\+\+LINE\+\_\+4\+\_\+\+BIT\+\_\+\+MODE}}~0x20
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a6ac5902802006a6ae9742f75fb376691}{TWO\+\_\+\+LINE\+\_\+4\+\_\+\+BIT\+\_\+\+MODE}}~0x28
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a4e83d656236d09ab7e975244d842f8c2}{FOUR\+\_\+\+BITS\+\_\+\+DATA\+\_\+\+MODE}}~0x02
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a7c67b7105bcd21f4bb1f978d0445dfe8}{ENTRY\+\_\+\+MODE}}~0x06
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a9171cc63ffc17005e14d22aa18406a6d}{DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+OFF}}~0x08
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a637cd1c4adf98ef499e9b8d09f08b16e}{DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+ON}}~0x0E
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a32b47ae26cb315cd547ff9478ce3cffe}{DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+OFF}}~0x0C
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a318c354201772b0c59bc91afb61821be}{DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+BLINKING}}~0x0F
+\item 
+\#define \mbox{\hyperlink{lcd_8h_aae8464d693100f30f6f6a8948af5fc99}{SHIFT\+\_\+\+ENTRIE\+\_\+\+DISPLAY\+\_\+\+LEFT}}~0x18
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a0f81e17c9a601865abbc4c37c6ab40c3}{SHIFT\+\_\+\+ENTRIE\+\_\+\+DISPLAY\+\_\+\+RIGHT}}~0x1C
+\item 
+\#define \mbox{\hyperlink{lcd_8h_af622fbd1bdad1b7c1faaa88fe59cd1bc}{MOVE\+\_\+\+CURSOR\+\_\+\+LEFT\+\_\+\+BY\+\_\+\+ONE\+\_\+\+Character}}~0x10
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a433226df92cb1b5f4a34361e0ce28902}{MOVE\+\_\+\+CURSOR\+\_\+\+RIGHT\+\_\+\+BY\+\_\+\+ONE\+\_\+\+Character}}~0x14
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a221b02b65527a670a158a9b1387e877c}{CLEAR\+\_\+\+DISPLAY}}~0x01
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a3fb4b959d2f90556f0ec5766a804a00e}{SET\+\_\+\+DDRAM\+\_\+\+ADDRESS}}~0x80
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a9693fcc03e9a7b444afffc1c938959b0}{SET\+\_\+\+CGRAM\+\_\+\+ADDRESS}}~0x40
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lcd_8h_a301a0b73016a44e015dbd374c08243d4}{LCD\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Function prototypes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_acce20ba4ca4e6a59e332d28a0bcd735c}{LCD\+\_\+send\+Command}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} command)
+\begin{DoxyCompactList}\small\item\em Send a command to the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_a95f704f0b15c7a97cf4df2bbf9214bcb}{LCD\+\_\+display\+Character}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} data)
+\begin{DoxyCompactList}\small\item\em Display a character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_a45740a22d2363f8d6cc439cedbde9a36}{LCD\+\_\+display\+String}} (const char \texorpdfstring{$\ast$}{*}Str)
+\begin{DoxyCompactList}\small\item\em Display a string on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_a2dc5fd1b86cf20a56c83b63548ce48ed}{LCD\+\_\+go\+To\+Row\+Column}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} row, \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} col)
+\begin{DoxyCompactList}\small\item\em Move the cursor to a specified position on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_ab2392a60f34b9191ad7d69f0e9f5f085}{LCD\+\_\+display\+String\+Row\+Colum}} (\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} row, \mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} col, const char \texorpdfstring{$\ast$}{*}Str)
+\begin{DoxyCompactList}\small\item\em Display a string at a specified position on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_ae370e63124b5591b180ed93046cbba93}{LCD\+\_\+intger\+To\+String}} (int data)
+\begin{DoxyCompactList}\small\item\em Convert an integer to a string and display it on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_a4d9e56afb5a3e2e68a1b10815d782819}{LCD\+\_\+double\+To\+String}} (double data)
+\begin{DoxyCompactList}\small\item\em Convert a double to a string and display it on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd_8h_a84a2f3a2540df94eb157c2976180625f}{LCD\+\_\+clear\+Screen}} (void)
+\begin{DoxyCompactList}\small\item\em Clear the LCD screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LCD driver header file. 
+
+This file contains the macros and function prototypes for controlling an LCD. It supports both 4-\/bit and 8-\/bit modes.
+
+\begin{DoxyDate}{Date}
+May 19, 2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Motaz 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lcd_8h_a221b02b65527a670a158a9b1387e877c}\label{lcd_8h_a221b02b65527a670a158a9b1387e877c} 
+\index{lcd.h@{lcd.h}!CLEAR\_DISPLAY@{CLEAR\_DISPLAY}}
+\index{CLEAR\_DISPLAY@{CLEAR\_DISPLAY}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_DISPLAY}{CLEAR\_DISPLAY}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+DISPLAY~0x01}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00060}{60}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a613e27eef2ef8406b7c266c1817e0c5a}\label{lcd_8h_a613e27eef2ef8406b7c266c1817e0c5a} 
+\index{lcd.h@{lcd.h}!DATA\_BITS\_MODE@{DATA\_BITS\_MODE}}
+\index{DATA\_BITS\_MODE@{DATA\_BITS\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_BITS\_MODE}{DATA\_BITS\_MODE}}
+{\footnotesize\ttfamily \#define DATA\+\_\+\+BITS\+\_\+\+MODE~4}
+
+
+
+Data bits mode (4 or 8) 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00028}{28}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a9171cc63ffc17005e14d22aa18406a6d}\label{lcd_8h_a9171cc63ffc17005e14d22aa18406a6d} 
+\index{lcd.h@{lcd.h}!DISPLAY\_OFF\_CURSOR\_OFF@{DISPLAY\_OFF\_CURSOR\_OFF}}
+\index{DISPLAY\_OFF\_CURSOR\_OFF@{DISPLAY\_OFF\_CURSOR\_OFF}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_OFF\_CURSOR\_OFF}{DISPLAY\_OFF\_CURSOR\_OFF}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+OFF~0x08}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00052}{52}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a318c354201772b0c59bc91afb61821be}\label{lcd_8h_a318c354201772b0c59bc91afb61821be} 
+\index{lcd.h@{lcd.h}!DISPLAY\_ON\_CURSOR\_BLINKING@{DISPLAY\_ON\_CURSOR\_BLINKING}}
+\index{DISPLAY\_ON\_CURSOR\_BLINKING@{DISPLAY\_ON\_CURSOR\_BLINKING}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_ON\_CURSOR\_BLINKING}{DISPLAY\_ON\_CURSOR\_BLINKING}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+BLINKING~0x0F}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00055}{55}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a32b47ae26cb315cd547ff9478ce3cffe}\label{lcd_8h_a32b47ae26cb315cd547ff9478ce3cffe} 
+\index{lcd.h@{lcd.h}!DISPLAY\_ON\_CURSOR\_OFF@{DISPLAY\_ON\_CURSOR\_OFF}}
+\index{DISPLAY\_ON\_CURSOR\_OFF@{DISPLAY\_ON\_CURSOR\_OFF}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_ON\_CURSOR\_OFF}{DISPLAY\_ON\_CURSOR\_OFF}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+OFF~0x0C}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00054}{54}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a637cd1c4adf98ef499e9b8d09f08b16e}\label{lcd_8h_a637cd1c4adf98ef499e9b8d09f08b16e} 
+\index{lcd.h@{lcd.h}!DISPLAY\_ON\_CURSOR\_ON@{DISPLAY\_ON\_CURSOR\_ON}}
+\index{DISPLAY\_ON\_CURSOR\_ON@{DISPLAY\_ON\_CURSOR\_ON}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_ON\_CURSOR\_ON}{DISPLAY\_ON\_CURSOR\_ON}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+ON~0x0E}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00053}{53}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a07484107e6d9fdf38b53edf631d6511d}\label{lcd_8h_a07484107e6d9fdf38b53edf631d6511d} 
+\index{lcd.h@{lcd.h}!E@{E}}
+\index{E@{E}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily \#define E~PB2}
+
+
+
+Enable pin. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00036}{36}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a7c67b7105bcd21f4bb1f978d0445dfe8}\label{lcd_8h_a7c67b7105bcd21f4bb1f978d0445dfe8} 
+\index{lcd.h@{lcd.h}!ENTRY\_MODE@{ENTRY\_MODE}}
+\index{ENTRY\_MODE@{ENTRY\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{ENTRY\_MODE}{ENTRY\_MODE}}
+{\footnotesize\ttfamily \#define ENTRY\+\_\+\+MODE~0x06}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00051}{51}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a4e83d656236d09ab7e975244d842f8c2}\label{lcd_8h_a4e83d656236d09ab7e975244d842f8c2} 
+\index{lcd.h@{lcd.h}!FOUR\_BITS\_DATA\_MODE@{FOUR\_BITS\_DATA\_MODE}}
+\index{FOUR\_BITS\_DATA\_MODE@{FOUR\_BITS\_DATA\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{FOUR\_BITS\_DATA\_MODE}{FOUR\_BITS\_DATA\_MODE}}
+{\footnotesize\ttfamily \#define FOUR\+\_\+\+BITS\+\_\+\+DATA\+\_\+\+MODE~0x02}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00050}{50}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a10f66499a3b1e8388d4f380e784d2149}\label{lcd_8h_a10f66499a3b1e8388d4f380e784d2149} 
+\index{lcd.h@{lcd.h}!LCD\_CTRL\_PORT@{LCD\_CTRL\_PORT}}
+\index{LCD\_CTRL\_PORT@{LCD\_CTRL\_PORT}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CTRL\_PORT}{LCD\_CTRL\_PORT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CTRL\+\_\+\+PORT~PORTB}
+
+
+
+Control port. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00037}{37}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a7d8e60f5071fa0f01d70cbac2b57bae4}\label{lcd_8h_a7d8e60f5071fa0f01d70cbac2b57bae4} 
+\index{lcd.h@{lcd.h}!LCD\_CTRL\_PORT\_DIR@{LCD\_CTRL\_PORT\_DIR}}
+\index{LCD\_CTRL\_PORT\_DIR@{LCD\_CTRL\_PORT\_DIR}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CTRL\_PORT\_DIR}{LCD\_CTRL\_PORT\_DIR}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CTRL\+\_\+\+PORT\+\_\+\+DIR~DDRB}
+
+
+
+Control port direction. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00038}{38}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a077def6ebb43bf9aee4e7cad468ed726}\label{lcd_8h_a077def6ebb43bf9aee4e7cad468ed726} 
+\index{lcd.h@{lcd.h}!LCD\_DATA\_PORT@{LCD\_DATA\_PORT}}
+\index{LCD\_DATA\_PORT@{LCD\_DATA\_PORT}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DATA\_PORT}{LCD\_DATA\_PORT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DATA\+\_\+\+PORT~PORTA}
+
+
+
+Data port. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00040}{40}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_ab8a7d604fbab96846d056ab79068b22c}\label{lcd_8h_ab8a7d604fbab96846d056ab79068b22c} 
+\index{lcd.h@{lcd.h}!LCD\_DATA\_PORT\_DIR@{LCD\_DATA\_PORT\_DIR}}
+\index{LCD\_DATA\_PORT\_DIR@{LCD\_DATA\_PORT\_DIR}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DATA\_PORT\_DIR}{LCD\_DATA\_PORT\_DIR}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DATA\+\_\+\+PORT\+\_\+\+DIR~DDRA}
+
+
+
+Data port direction. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00041}{41}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a48faec79de2e79f51f1556c22f8ce113}\label{lcd_8h_a48faec79de2e79f51f1556c22f8ce113} 
+\index{lcd.h@{lcd.h}!LOWER\_PORT\_PINS@{LOWER\_PORT\_PINS}}
+\index{LOWER\_PORT\_PINS@{LOWER\_PORT\_PINS}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LOWER\_PORT\_PINS}{LOWER\_PORT\_PINS}}
+{\footnotesize\ttfamily \#define LOWER\+\_\+\+PORT\+\_\+\+PINS}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00030}{30}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_af622fbd1bdad1b7c1faaa88fe59cd1bc}\label{lcd_8h_af622fbd1bdad1b7c1faaa88fe59cd1bc} 
+\index{lcd.h@{lcd.h}!MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character@{MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character}}
+\index{MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character@{MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character}{MOVE\_CURSOR\_LEFT\_BY\_ONE\_Character}}
+{\footnotesize\ttfamily \#define MOVE\+\_\+\+CURSOR\+\_\+\+LEFT\+\_\+\+BY\+\_\+\+ONE\+\_\+\+Character~0x10}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00058}{58}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a433226df92cb1b5f4a34361e0ce28902}\label{lcd_8h_a433226df92cb1b5f4a34361e0ce28902} 
+\index{lcd.h@{lcd.h}!MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character@{MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character}}
+\index{MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character@{MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character}{MOVE\_CURSOR\_RIGHT\_BY\_ONE\_Character}}
+{\footnotesize\ttfamily \#define MOVE\+\_\+\+CURSOR\+\_\+\+RIGHT\+\_\+\+BY\+\_\+\+ONE\+\_\+\+Character~0x14}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00059}{59}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a2d3a84745c290605a01e4570d8b6024b}\label{lcd_8h_a2d3a84745c290605a01e4570d8b6024b} 
+\index{lcd.h@{lcd.h}!ONE\_LINE\_4\_BIT\_MODE@{ONE\_LINE\_4\_BIT\_MODE}}
+\index{ONE\_LINE\_4\_BIT\_MODE@{ONE\_LINE\_4\_BIT\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{ONE\_LINE\_4\_BIT\_MODE}{ONE\_LINE\_4\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define ONE\+\_\+\+LINE\+\_\+4\+\_\+\+BIT\+\_\+\+MODE~0x20}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00048}{48}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a94e0e8cdb503dad489e49b5f06ab2298}\label{lcd_8h_a94e0e8cdb503dad489e49b5f06ab2298} 
+\index{lcd.h@{lcd.h}!ONE\_LINE\_8\_BIT\_MODE@{ONE\_LINE\_8\_BIT\_MODE}}
+\index{ONE\_LINE\_8\_BIT\_MODE@{ONE\_LINE\_8\_BIT\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{ONE\_LINE\_8\_BIT\_MODE}{ONE\_LINE\_8\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define ONE\+\_\+\+LINE\+\_\+8\+\_\+\+BIT\+\_\+\+MODE~0x30}
+
+
+
+LCD Commands. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00046}{46}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_af8903d8eea3868940c60af887473b152}\label{lcd_8h_af8903d8eea3868940c60af887473b152} 
+\index{lcd.h@{lcd.h}!RS@{RS}}
+\index{RS@{RS}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{RS}{RS}}
+{\footnotesize\ttfamily \#define RS~PB0}
+
+
+
+Register select pin. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00034}{34}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_afc4ded33ac0ca43defcce639e965748a}\label{lcd_8h_afc4ded33ac0ca43defcce639e965748a} 
+\index{lcd.h@{lcd.h}!RW@{RW}}
+\index{RW@{RW}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{RW}{RW}}
+{\footnotesize\ttfamily \#define RW~PB1}
+
+
+
+Read/\+Write pin. 
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00035}{35}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a9693fcc03e9a7b444afffc1c938959b0}\label{lcd_8h_a9693fcc03e9a7b444afffc1c938959b0} 
+\index{lcd.h@{lcd.h}!SET\_CGRAM\_ADDRESS@{SET\_CGRAM\_ADDRESS}}
+\index{SET\_CGRAM\_ADDRESS@{SET\_CGRAM\_ADDRESS}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{SET\_CGRAM\_ADDRESS}{SET\_CGRAM\_ADDRESS}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+CGRAM\+\_\+\+ADDRESS~0x40}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00062}{62}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a3fb4b959d2f90556f0ec5766a804a00e}\label{lcd_8h_a3fb4b959d2f90556f0ec5766a804a00e} 
+\index{lcd.h@{lcd.h}!SET\_DDRAM\_ADDRESS@{SET\_DDRAM\_ADDRESS}}
+\index{SET\_DDRAM\_ADDRESS@{SET\_DDRAM\_ADDRESS}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{SET\_DDRAM\_ADDRESS}{SET\_DDRAM\_ADDRESS}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+DDRAM\+\_\+\+ADDRESS~0x80}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00061}{61}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_aae8464d693100f30f6f6a8948af5fc99}\label{lcd_8h_aae8464d693100f30f6f6a8948af5fc99} 
+\index{lcd.h@{lcd.h}!SHIFT\_ENTRIE\_DISPLAY\_LEFT@{SHIFT\_ENTRIE\_DISPLAY\_LEFT}}
+\index{SHIFT\_ENTRIE\_DISPLAY\_LEFT@{SHIFT\_ENTRIE\_DISPLAY\_LEFT}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{SHIFT\_ENTRIE\_DISPLAY\_LEFT}{SHIFT\_ENTRIE\_DISPLAY\_LEFT}}
+{\footnotesize\ttfamily \#define SHIFT\+\_\+\+ENTRIE\+\_\+\+DISPLAY\+\_\+\+LEFT~0x18}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00056}{56}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a0f81e17c9a601865abbc4c37c6ab40c3}\label{lcd_8h_a0f81e17c9a601865abbc4c37c6ab40c3} 
+\index{lcd.h@{lcd.h}!SHIFT\_ENTRIE\_DISPLAY\_RIGHT@{SHIFT\_ENTRIE\_DISPLAY\_RIGHT}}
+\index{SHIFT\_ENTRIE\_DISPLAY\_RIGHT@{SHIFT\_ENTRIE\_DISPLAY\_RIGHT}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{SHIFT\_ENTRIE\_DISPLAY\_RIGHT}{SHIFT\_ENTRIE\_DISPLAY\_RIGHT}}
+{\footnotesize\ttfamily \#define SHIFT\+\_\+\+ENTRIE\+\_\+\+DISPLAY\+\_\+\+RIGHT~0x1C}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00057}{57}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a6ac5902802006a6ae9742f75fb376691}\label{lcd_8h_a6ac5902802006a6ae9742f75fb376691} 
+\index{lcd.h@{lcd.h}!TWO\_LINE\_4\_BIT\_MODE@{TWO\_LINE\_4\_BIT\_MODE}}
+\index{TWO\_LINE\_4\_BIT\_MODE@{TWO\_LINE\_4\_BIT\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{TWO\_LINE\_4\_BIT\_MODE}{TWO\_LINE\_4\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+LINE\+\_\+4\+\_\+\+BIT\+\_\+\+MODE~0x28}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00049}{49}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+\Hypertarget{lcd_8h_a72a2fa9ca8e2b37b8689f4baf015d18c}\label{lcd_8h_a72a2fa9ca8e2b37b8689f4baf015d18c} 
+\index{lcd.h@{lcd.h}!TWO\_LINE\_8\_BIT\_MODE@{TWO\_LINE\_8\_BIT\_MODE}}
+\index{TWO\_LINE\_8\_BIT\_MODE@{TWO\_LINE\_8\_BIT\_MODE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{TWO\_LINE\_8\_BIT\_MODE}{TWO\_LINE\_8\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+LINE\+\_\+8\+\_\+\+BIT\+\_\+\+MODE~0x38}
+
+
+
+Definition at line \mbox{\hyperlink{lcd_8h_source_l00047}{47}} of file \mbox{\hyperlink{lcd_8h_source}{lcd.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lcd_8h_a84a2f3a2540df94eb157c2976180625f}\label{lcd_8h_a84a2f3a2540df94eb157c2976180625f} 
+\index{lcd.h@{lcd.h}!LCD\_clearScreen@{LCD\_clearScreen}}
+\index{LCD\_clearScreen@{LCD\_clearScreen}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_clearScreen()}{LCD\_clearScreen()}}
+{\footnotesize\ttfamily void LCD\+\_\+clear\+Screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear the LCD screen. 
+
+This function clears the LCD screen. 
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00215}{215}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{lcd_8h_a84a2f3a2540df94eb157c2976180625f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{lcd_8h_a84a2f3a2540df94eb157c2976180625f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_a95f704f0b15c7a97cf4df2bbf9214bcb}\label{lcd_8h_a95f704f0b15c7a97cf4df2bbf9214bcb} 
+\index{lcd.h@{lcd.h}!LCD\_displayCharacter@{LCD\_displayCharacter}}
+\index{LCD\_displayCharacter@{LCD\_displayCharacter}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayCharacter()}{LCD\_displayCharacter()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+Character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Display a character on the LCD. 
+
+This function displays a character on the LCD in either 4-\/bit or 8-\/bit mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The character to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00091}{91}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a95f704f0b15c7a97cf4df2bbf9214bcb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_a45740a22d2363f8d6cc439cedbde9a36}\label{lcd_8h_a45740a22d2363f8d6cc439cedbde9a36} 
+\index{lcd.h@{lcd.h}!LCD\_displayString@{LCD\_displayString}}
+\index{LCD\_displayString@{LCD\_displayString}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayString()}{LCD\_displayString()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+
+
+Display a string on the LCD. 
+
+This function displays a null-\/terminated string on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Str} & The string to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00131}{131}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{lcd_8h_a45740a22d2363f8d6cc439cedbde9a36_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a45740a22d2363f8d6cc439cedbde9a36_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_ab2392a60f34b9191ad7d69f0e9f5f085}\label{lcd_8h_ab2392a60f34b9191ad7d69f0e9f5f085} 
+\index{lcd.h@{lcd.h}!LCD\_displayStringRowColum@{LCD\_displayStringRowColum}}
+\index{LCD\_displayStringRowColum@{LCD\_displayStringRowColum}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_displayStringRowColum()}{LCD\_displayStringRowColum()}}
+{\footnotesize\ttfamily void LCD\+\_\+display\+String\+Row\+Colum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{row,  }\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{col,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Str }\end{DoxyParamCaption})}
+
+
+
+Display a string at a specified position on the LCD. 
+
+This function displays a null-\/terminated string at a specified row and column on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row number (0-\/1). \\
+\hline
+{\em col} & The column number (0-\/15). \\
+\hline
+{\em Str} & The string to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00175}{175}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_ab2392a60f34b9191ad7d69f0e9f5f085_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_a4d9e56afb5a3e2e68a1b10815d782819}\label{lcd_8h_a4d9e56afb5a3e2e68a1b10815d782819} 
+\index{lcd.h@{lcd.h}!LCD\_doubleToString@{LCD\_doubleToString}}
+\index{LCD\_doubleToString@{LCD\_doubleToString}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_doubleToString()}{LCD\_doubleToString()}}
+{\footnotesize\ttfamily void LCD\+\_\+double\+To\+String (\begin{DoxyParamCaption}\item[{double}]{data }\end{DoxyParamCaption})}
+
+
+
+Convert a double to a string and display it on the LCD. 
+
+This function converts a double to a string and displays it on the LCD. It displays up to two decimal places.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The double to display. \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Integer part
+
+\texorpdfstring{$<$}{<} Assuming 2 decimal places
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00201}{201}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a4d9e56afb5a3e2e68a1b10815d782819_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_a2dc5fd1b86cf20a56c83b63548ce48ed}\label{lcd_8h_a2dc5fd1b86cf20a56c83b63548ce48ed} 
+\index{lcd.h@{lcd.h}!LCD\_goToRowColumn@{LCD\_goToRowColumn}}
+\index{LCD\_goToRowColumn@{LCD\_goToRowColumn}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_goToRowColumn()}{LCD\_goToRowColumn()}}
+{\footnotesize\ttfamily void LCD\+\_\+go\+To\+Row\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{row,  }\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Move the cursor to a specified position on the LCD. 
+
+This function moves the cursor to a specified row and column on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row number (0-\/1). \\
+\hline
+{\em col} & The column number (0-\/15). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00147}{147}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{lcd_8h_a2dc5fd1b86cf20a56c83b63548ce48ed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a2dc5fd1b86cf20a56c83b63548ce48ed_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_a301a0b73016a44e015dbd374c08243d4}\label{lcd_8h_a301a0b73016a44e015dbd374c08243d4} 
+\index{lcd.h@{lcd.h}!LCD\_init@{LCD\_init}}
+\index{LCD\_init@{LCD\_init}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_init()}{LCD\_init()}}
+{\footnotesize\ttfamily void LCD\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function prototypes. 
+
+Function prototypes.
+
+This function initializes the LCD in either 4-\/bit or 8-\/bit mode. 
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00026}{26}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{lcd_8h_a301a0b73016a44e015dbd374c08243d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{lcd_8h_a301a0b73016a44e015dbd374c08243d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_ae370e63124b5591b180ed93046cbba93}\label{lcd_8h_ae370e63124b5591b180ed93046cbba93} 
+\index{lcd.h@{lcd.h}!LCD\_intgerToString@{LCD\_intgerToString}}
+\index{LCD\_intgerToString@{LCD\_intgerToString}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_intgerToString()}{LCD\_intgerToString()}}
+{\footnotesize\ttfamily void LCD\+\_\+intger\+To\+String (\begin{DoxyParamCaption}\item[{int}]{data }\end{DoxyParamCaption})}
+
+
+
+Convert an integer to a string and display it on the LCD. 
+
+This function converts an integer to a string and displays it on the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The integer to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00187}{187}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_ae370e63124b5591b180ed93046cbba93_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{lcd_8h_acce20ba4ca4e6a59e332d28a0bcd735c}\label{lcd_8h_acce20ba4ca4e6a59e332d28a0bcd735c} 
+\index{lcd.h@{lcd.h}!LCD\_sendCommand@{LCD\_sendCommand}}
+\index{LCD\_sendCommand@{LCD\_sendCommand}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_sendCommand()}{LCD\_sendCommand()}}
+{\footnotesize\ttfamily void LCD\+\_\+send\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{std__types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{command }\end{DoxyParamCaption})}
+
+
+
+Send a command to the LCD. 
+
+This function sends a command to the LCD in either 4-\/bit or 8-\/bit mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to send. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lcd_8c_source_l00051}{51}} of file \mbox{\hyperlink{lcd_8c_source}{lcd.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_acce20ba4ca4e6a59e332d28a0bcd735c_icgraph}
+\end{center}
+\end{figure}

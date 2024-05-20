@@ -1,0 +1,148 @@
+\doxysection{include/common\+\_\+macros.h File Reference}
+\hypertarget{common__macros_8h}{}\label{common__macros_8h}\index{include/common\_macros.h@{include/common\_macros.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{common__macros_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a26474f43799fbade9cf300e21dd3a91a}{SET\+\_\+\+BIT}}(REG,  BIT)~(REG\texorpdfstring{$\vert$}{|}=(1$<$$<$BIT))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a133aae6fc0d41bffab39ab223a7001de}{CLEAR\+\_\+\+BIT}}(REG,  BIT)~(REG\&=(\texorpdfstring{$\sim$}{\string~}(1$<$$<$BIT)))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_ae335be8e8dc374dc7075fe9b6a410efd}{TOGGLE\+\_\+\+BIT}}(REG,  BIT)~(REG\texorpdfstring{$^\wedge$}{\string^}=(1$<$$<$BIT))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a08b8fc9220dcda3e6747251b8292e262}{AND}}(DATA1,  DATA2)~((DATA1)\&(DATA2))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a44100aca504f365fcec21f2cb6eac381}{OR}}(DATA1,  DATA2)~((DATA1)\texorpdfstring{$\vert$}{|}(DATA2))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_afb20f25c9f60db5a20902e0e4d30c514}{ROR}}(REG,  num)~( REG= (REG$>$$>$num) \texorpdfstring{$\vert$}{|} (REG$<$$<$(8-\/num)) )
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a8c26888be4ae6397073e42496c885512}{ROL}}(REG,  num)~( REG= (REG$<$$<$num) \texorpdfstring{$\vert$}{|} (REG$>$$>$(8-\/num)) )
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a7f8874337b74eb89e5de9c68325d581d}{BIT\+\_\+\+IS\+\_\+\+SET}}(REG,  BIT)~( REG \& (1$<$$<$BIT) )
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_a41cd0663cc32d87a4c7679add6f21aff}{SIFT\+\_\+\+TO\+\_\+\+RIGHT}}(DATA,  N\+\_\+\+SHIFT)~( (DATA) $>$$>$ (N\+\_\+\+SHIFT))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_aab533e6c2e2dfb6e8a63306c691ced42}{SIFT\+\_\+\+TO\+\_\+\+LEFT}}(DATA,  N\+\_\+\+SHIFT)~( (DATA) $<$$<$ (N\+\_\+\+SHIFT))
+\item 
+\#define \mbox{\hyperlink{common__macros_8h_af4d3be1ad5094302bf56b54bbc872e95}{BIT\+\_\+\+IS\+\_\+\+CLEAR}}(REG,  BIT)~( !(REG \& (1$<$$<$BIT)) )
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{common__macros_8h_a08b8fc9220dcda3e6747251b8292e262}\label{common__macros_8h_a08b8fc9220dcda3e6747251b8292e262} 
+\index{common\_macros.h@{common\_macros.h}!AND@{AND}}
+\index{AND@{AND}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{AND}{AND}}
+{\footnotesize\ttfamily \#define AND(\begin{DoxyParamCaption}\item[{}]{DATA1,  }\item[{}]{DATA2 }\end{DoxyParamCaption})~((DATA1)\&(DATA2))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00021}{21}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_af4d3be1ad5094302bf56b54bbc872e95}\label{common__macros_8h_af4d3be1ad5094302bf56b54bbc872e95} 
+\index{common\_macros.h@{common\_macros.h}!BIT\_IS\_CLEAR@{BIT\_IS\_CLEAR}}
+\index{BIT\_IS\_CLEAR@{BIT\_IS\_CLEAR}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_IS\_CLEAR}{BIT\_IS\_CLEAR}}
+{\footnotesize\ttfamily \#define BIT\+\_\+\+IS\+\_\+\+CLEAR(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{BIT }\end{DoxyParamCaption})~( !(REG \& (1$<$$<$BIT)) )}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00040}{40}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a7f8874337b74eb89e5de9c68325d581d}\label{common__macros_8h_a7f8874337b74eb89e5de9c68325d581d} 
+\index{common\_macros.h@{common\_macros.h}!BIT\_IS\_SET@{BIT\_IS\_SET}}
+\index{BIT\_IS\_SET@{BIT\_IS\_SET}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_IS\_SET}{BIT\_IS\_SET}}
+{\footnotesize\ttfamily \#define BIT\+\_\+\+IS\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{BIT }\end{DoxyParamCaption})~( REG \& (1$<$$<$BIT) )}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00032}{32}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a133aae6fc0d41bffab39ab223a7001de}\label{common__macros_8h_a133aae6fc0d41bffab39ab223a7001de} 
+\index{common\_macros.h@{common\_macros.h}!CLEAR\_BIT@{CLEAR\_BIT}}
+\index{CLEAR\_BIT@{CLEAR\_BIT}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_BIT}{CLEAR\_BIT}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{BIT }\end{DoxyParamCaption})~(REG\&=(\texorpdfstring{$\sim$}{\string~}(1$<$$<$BIT)))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00015}{15}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a44100aca504f365fcec21f2cb6eac381}\label{common__macros_8h_a44100aca504f365fcec21f2cb6eac381} 
+\index{common\_macros.h@{common\_macros.h}!OR@{OR}}
+\index{OR@{OR}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{OR}{OR}}
+{\footnotesize\ttfamily \#define OR(\begin{DoxyParamCaption}\item[{}]{DATA1,  }\item[{}]{DATA2 }\end{DoxyParamCaption})~((DATA1)\texorpdfstring{$\vert$}{|}(DATA2))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00024}{24}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a8c26888be4ae6397073e42496c885512}\label{common__macros_8h_a8c26888be4ae6397073e42496c885512} 
+\index{common\_macros.h@{common\_macros.h}!ROL@{ROL}}
+\index{ROL@{ROL}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{ROL}{ROL}}
+{\footnotesize\ttfamily \#define ROL(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{num }\end{DoxyParamCaption})~( REG= (REG$<$$<$num) \texorpdfstring{$\vert$}{|} (REG$>$$>$(8-\/num)) )}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00029}{29}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_afb20f25c9f60db5a20902e0e4d30c514}\label{common__macros_8h_afb20f25c9f60db5a20902e0e4d30c514} 
+\index{common\_macros.h@{common\_macros.h}!ROR@{ROR}}
+\index{ROR@{ROR}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{ROR}{ROR}}
+{\footnotesize\ttfamily \#define ROR(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{num }\end{DoxyParamCaption})~( REG= (REG$>$$>$num) \texorpdfstring{$\vert$}{|} (REG$<$$<$(8-\/num)) )}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00026}{26}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a26474f43799fbade9cf300e21dd3a91a}\label{common__macros_8h_a26474f43799fbade9cf300e21dd3a91a} 
+\index{common\_macros.h@{common\_macros.h}!SET\_BIT@{SET\_BIT}}
+\index{SET\_BIT@{SET\_BIT}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{SET\_BIT}{SET\_BIT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{BIT }\end{DoxyParamCaption})~(REG\texorpdfstring{$\vert$}{|}=(1$<$$<$BIT))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00012}{12}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_aab533e6c2e2dfb6e8a63306c691ced42}\label{common__macros_8h_aab533e6c2e2dfb6e8a63306c691ced42} 
+\index{common\_macros.h@{common\_macros.h}!SIFT\_TO\_LEFT@{SIFT\_TO\_LEFT}}
+\index{SIFT\_TO\_LEFT@{SIFT\_TO\_LEFT}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{SIFT\_TO\_LEFT}{SIFT\_TO\_LEFT}}
+{\footnotesize\ttfamily \#define SIFT\+\_\+\+TO\+\_\+\+LEFT(\begin{DoxyParamCaption}\item[{}]{DATA,  }\item[{}]{N\+\_\+\+SHIFT }\end{DoxyParamCaption})~( (DATA) $<$$<$ (N\+\_\+\+SHIFT))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00037}{37}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_a41cd0663cc32d87a4c7679add6f21aff}\label{common__macros_8h_a41cd0663cc32d87a4c7679add6f21aff} 
+\index{common\_macros.h@{common\_macros.h}!SIFT\_TO\_RIGHT@{SIFT\_TO\_RIGHT}}
+\index{SIFT\_TO\_RIGHT@{SIFT\_TO\_RIGHT}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{SIFT\_TO\_RIGHT}{SIFT\_TO\_RIGHT}}
+{\footnotesize\ttfamily \#define SIFT\+\_\+\+TO\+\_\+\+RIGHT(\begin{DoxyParamCaption}\item[{}]{DATA,  }\item[{}]{N\+\_\+\+SHIFT }\end{DoxyParamCaption})~( (DATA) $>$$>$ (N\+\_\+\+SHIFT))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00034}{34}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+
+\Hypertarget{common__macros_8h_ae335be8e8dc374dc7075fe9b6a410efd}\label{common__macros_8h_ae335be8e8dc374dc7075fe9b6a410efd} 
+\index{common\_macros.h@{common\_macros.h}!TOGGLE\_BIT@{TOGGLE\_BIT}}
+\index{TOGGLE\_BIT@{TOGGLE\_BIT}!common\_macros.h@{common\_macros.h}}
+\doxysubsubsection{\texorpdfstring{TOGGLE\_BIT}{TOGGLE\_BIT}}
+{\footnotesize\ttfamily \#define TOGGLE\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{REG,  }\item[{}]{BIT }\end{DoxyParamCaption})~(REG\texorpdfstring{$^\wedge$}{\string^}=(1$<$$<$BIT))}
+
+
+
+Definition at line \mbox{\hyperlink{common__macros_8h_source_l00018}{18}} of file \mbox{\hyperlink{common__macros_8h_source}{common\+\_\+macros.\+h}}.
+

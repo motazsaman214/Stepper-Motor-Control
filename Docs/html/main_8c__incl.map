@@ -1,0 +1,26 @@
+<map id="src/main.c" name="src/main.c">
+<area shape="rect" id="Node000001" title="Stepper motor control with AVR ATmega32 using push buttons for direction and mode control." alt="" coords="217,5,299,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,229,68,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,34,192,82,118,156,60,219,56,216,114,153,188,78,241,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,229,192,256"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,34,212,86,171,156,151,215,145,214,166,154,208,83,245,31"/>
+<area shape="rect" id="Node000004" href="$lcd_8h.html" title="LCD driver header file." alt="" coords="250,80,356,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="268,31,289,65,285,68,263,34"/>
+<area shape="rect" id="Node000005" href="$common__macros_8h.html" title=" " alt="" coords="309,155,441,181"/>
+<area shape="poly" id="edge12_Node000001_Node000005" title=" " alt="" coords="301,29,339,48,356,62,371,79,381,109,382,139,377,140,376,110,366,81,353,65,336,52,298,34"/>
+<area shape="rect" id="Node000006" href="$std__types_8h.html" title=" " alt="" coords="465,155,555,181"/>
+<area shape="poly" id="edge14_Node000001_Node000006" title=" " alt="" coords="292,30,340,51,393,78,442,110,485,143,482,147,439,115,390,82,338,56,290,35"/>
+<area shape="rect" id="Node000007" href="$micro__config_8h.html" title=" " alt="" coords="180,155,285,181"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="255,33,240,81,235,139,230,139,235,79,250,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="318,105,354,142,350,145,314,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="340,105,460,147,459,152,338,110"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="293,109,257,145,253,142,289,105"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="199,184,84,227,82,222,197,179"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="218,184,171,222,167,218,215,180"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="216,229,276,256"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="237,181,243,214,238,215,232,182"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="300,229,363,256"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="251,180,304,218,301,222,248,184"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="386,229,471,256"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="268,179,381,221,379,226,266,184"/>
+</map>
